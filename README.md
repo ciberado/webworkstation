@@ -13,7 +13,7 @@ Uses [ttyd](https://github.com/tsl0922/ttyd) to provide a web-based terminal wit
 
 
 ```bash
-docker run -p 8080:7681 --rm --restart=always ciberado/webworkstation:latest
+docker run -p 8080:7681 --restart=always ciberado/webworkstation:latest
 ```
 
 ## Connecting
