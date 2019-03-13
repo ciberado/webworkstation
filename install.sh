@@ -39,6 +39,7 @@ curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCK
 apt update && apt install tmux -y
 groupadd students
 useradd -g students -m trainer
+echo "trainer:1234"|chpasswd
 for i in $(seq 1 25); do
   useradd -g students -s /bin/bash -m student$i
   echo "student$i:1234"|chpasswd
