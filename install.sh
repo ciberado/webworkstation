@@ -3,7 +3,7 @@
 export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 
 apt update
-apt install vim git curl wget mysql-client apt-transport-https gnupg ca-certificates software-properties-common awscli --yes
+apt install vim git curl wget keychain mysql-client apt-transport-https gnupg ca-certificates software-properties-common awscli --yes
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg |  apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" |  tee -a /etc/apt/sources.list.d/kubernetes.list
