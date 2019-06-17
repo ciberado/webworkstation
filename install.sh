@@ -37,7 +37,7 @@ curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCK
 #apt install docker-ce -y
 
 wget https://get.helm.sh/helm-v2.14.1-linux-amd64.tar.gz
-tar xvf helm-v2.14.1-linux-amd64.tar
+tar xvf linux-amd64/helm-v2.14.1-linux-amd64.tar
 export PATH=$PATH:~/linux-amd64
 
 apt update && apt install tmux -y
