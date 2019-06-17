@@ -36,11 +36,15 @@ curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCK
 #apt update
 #apt install docker-ce -y
 
+wget https://get.helm.sh/helm-v2.14.1-linux-amd64.tar.gz
+tar xvf helm-v2.14.1-linux-amd64.tar
+export PATH=$PATH:~/linux-amd64
+
 apt update && apt install tmux -y
 groupadd students
 useradd -g students -m trainer
 echo "trainer:1234"|chpasswd
-for i in $(seq 1 25); do
+for i in $(seq 1 50); do
   useradd -g students -s /bin/bash -m student$i
   echo "student$i:1234"|chpasswd
 done
