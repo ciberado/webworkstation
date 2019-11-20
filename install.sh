@@ -3,7 +3,7 @@
 export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 
 apt update
-apt install vim git curl wget keychain mysql-client apt-transport-https gnupg ca-certificates software-properties-common awscli postgresql postgresql-contrib --yes
+apt install sudo vim git curl wget keychain mysql-client apt-transport-https gnupg ca-certificates software-properties-common awscli postgresql postgresql-contrib --yes
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg |  apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" |  tee -a /etc/apt/sources.list.d/kubernetes.list
@@ -41,10 +41,14 @@ tar xvf linux-amd64/helm-v2.14.1-linux-amd64.tar
 export PATH=$PATH:~/linux-amd64
 
 apt update && apt install tmux -y
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 groupadd students
 useradd -g students -m trainer
 echo "trainer:123456"|chpasswd
 for i in $(seq 1 100); do
   useradd -g students -s /bin/bash -m student$i
+  usermod -aG sudo student$i
   echo "student$i:1234"|chpasswd
 done
