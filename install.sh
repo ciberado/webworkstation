@@ -44,6 +44,12 @@ apt update && apt install tmux -y
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
+# Import the public repository GPG keys
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+curl -o /etc/apt/sources.list.d/microsoft.list "https://packages.microsoft.com/config/ubuntu/$(lsb_release -sr)/prod.list"
+apt-get update
+apt-get install mssql-cli -y
+
 groupadd students
 useradd -g students -m trainer
 echo "trainer:123456"|chpasswd
